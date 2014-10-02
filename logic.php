@@ -49,7 +49,7 @@
      */
     function get_password(){
         
-        global $number_of_words,  $add_a_number ,    $add_a_symbol  ,     $add_uppercase;
+        global $number_of_words,  $add_a_number ,    $add_a_symbol  ,     $add_uppercase,$max_words;
          $password = '';
          
         #if number of words is lass than  1 or more than 15, dont do anything
