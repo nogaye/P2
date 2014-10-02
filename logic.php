@@ -3,8 +3,6 @@
     
     #print_r($_POST); 
     
-    session_cache_limiter('must-revalidate');
-    
     # Variables to hold the password settings
     $max_words   = 10; #the maximum number of words allowed
     $number_of_words   = 0;
@@ -23,6 +21,9 @@
     }
     
    
+    /**
+     * Randomly generates a word from an array of words     * 
+     */
     function get_word()
     {
         $words =array("hello","bmw","name", 'stores','the', 'for', 'loop', 'is', 'used', 'when', 'you', 'know', 'in', 'advance', 'how', 'many', 'times',  'script', 'should', 'run');
@@ -32,6 +33,9 @@
         return $words[$rand_keys];
     }
 
+    /**
+     * Randomly generates a symbol from an array of symbols allowed for password use 
+     */
     function get_symbol()
     {
         #get random symbol from a collection of allowed password symbols
@@ -40,6 +44,9 @@
         return $symbols[$rand_no];
     }
 	
+    /**
+     * Uses the global setting variables to generate user password.
+     */
     function get_password(){
         
         global $number_of_words,  $add_a_number ,    $add_a_symbol  ,     $add_uppercase;
@@ -105,22 +112,6 @@
         
     }
     
-    
-	function calculate_total($subtotal, $discount, $shipping_method) {
 
-    if($shipping_method == 'priority') {
-        $shipping_rate = 5;
-    }
-    elseif($shipping_method == 'express') {
-        $shipping_rate = 15;
-    }
-
-    $tax = .09 * $subtotal;
-
-    $total = $subtotal + $shipping_rate - $discount;
-
-    return $total;
-
-}
 
 ?>
