@@ -14,49 +14,9 @@
 
     <link rel="stylesheet" type="text/css" href="styles.css" />
 
-    <style>
-        .t-font {
-            font-family: 'Tangerine', serif;
-            font-size: 68px;
-        }
+   
 
-        img {
-            display: block;
-            margin: auto;
-            width: 20%;
-            margin-top: 10px;
-            margin-bottom: 10px;
-        }
-
-        .t-circle {
-            color: white;
-            background-color: #5cb85c;
-             display: inline-block;
-  padding: 6px 12px;
-  margin-bottom: 0;
-  /*font-size: 14px;*/
-  font-weight: normal;
-  line-height: 1.42857143;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: middle;
-  background-image: none;
-  border: 1px solid transparent;
-  border-radius: 4px;
-         
-        }
-
-        .t-title {
-            color: white;
-            background-color: #428bca;
-            /*border-radius: 80px;*/
-            text-align: center;
-            padding: 20px;
-            margin-bottom: 10px;
-        }
-    </style>
-
-    <script>
+<!--    <script>
 
         function RandomWord() {
             var requestStr = "http://randomword.setgetgo.com/get.php";
@@ -71,7 +31,7 @@
         function RandomWordComplete(data) {
             alert(data.Word);
         }
-    </script>
+    </script>-->
 </head>
 <body>
     <?php require('logic.php');?>
@@ -91,7 +51,7 @@
                              <label for='number_of_words'>Number Of Words (Max 10)</label>
                         </td>
                         <td>
-                            <input type="number" min="1" max="10" required="required" name="number_of_words" value="<?php echo $_GET['number_of_words']; ?>" />
+                            <input type="number" min="1" max="10" required="required" name="number_of_words" value="<?php echo $number_of_words; ?>" />
                         </td>
                     </tr>
                        <tr>
@@ -99,10 +59,10 @@
                              <label for='separator'>Word Separator</label>
                         </td>
                         <td>
-                            <input type="radio" name="word_separator" value="none" checked="checked" <?php if(isset($_GET['number_of_words']) && $_GET['number_of_words'] == "none") { echo "checked=\"checked\""; } ?>/>None 
-                            <input type="radio" name="word_separator" value="space" <?php if(isset($_GET['number_of_words']) &&  $_GET['word_separator'] == "space") { echo "checked=\"checked\""; } ?>/>Space 
-                            <input type="radio" name="word_separator" value="camelcase" <?php if(isset($_GET['number_of_words']) &&  $_GET['word_separator'] == "camelcase") { echo "checked=\"checked\""; } ?>/>Camel Case
-                            <input type="radio" name="word_separator" value="hyphen" <?php if(isset($_GET['number_of_words']) &&  $_GET['word_separator'] == "hyphen") { echo "checked=\"checked\""; } ?>/>Hyphen
+                            <input type="radio" name="word_separator" value="none"  <?php if($word_separator == "none") { echo "checked=\"checked\""; } ?>/>None 
+                            <input type="radio" name="word_separator" value="space" <?php if($word_separator == "space") { echo "checked=\"checked\""; } ?>/>Space 
+                            <input type="radio" name="word_separator" value="camelcase" <?php if($word_separator == "camelcase") { echo "checked=\"checked\""; } ?>/>Camel Case
+                            <input type="radio" name="word_separator" value="hyphen" <?php if($word_separator == "hyphen") { echo "checked=\"checked\""; } ?>/>Hyphen
                         </td>
                     </tr>
                     <tr>
@@ -110,7 +70,7 @@
                             <label for='add_a_number'>Add A Number</label>
                         </td>
                         <td>
-                            <input type="checkbox" name="add_a_number" <?php if(isset($_GET['add_a_number']) && $_GET['add_a_number']) { echo "checked=\"checked\"";} ?> />
+                            <input type="checkbox" name="add_a_number" <?php if($add_a_number == true) { echo "checked=\"checked\"";} ?> />
                         </td>
                     </tr>
                     <tr>
@@ -118,7 +78,7 @@
                             <label for='add_a_symbol'>Add A Symbol</label>
                         </td>
                         <td>
-                            <input type="checkbox" name="add_a_symbol" <?php if(isset($_GET['add_a_symbol']) && $_GET['add_a_symbol']) { echo "checked=\"checked\"";} ?>  />
+                            <input type="checkbox" name="add_a_symbol" <?php if($add_a_symbol == true) { echo "checked=\"checked\"";} ?>  />
                         </td>
                     </tr>
                     <tr>
@@ -128,7 +88,7 @@
                                 <input type='button' name="add_uppercase_on" class="btn btn-default" value='OFF' />
                                 <input type='button' name="add_uppercase_on" class="btn btn-success" value='ON' />
                             </div>-->
-                            <input type="checkbox" name="add_uppercase" <?php if(isset($_GET['add_uppercase']) && $_GET['add_uppercase']) { echo "checked=\"checked\"";} ?>  />
+                            <input type="checkbox" name="add_uppercase" <?php if($add_uppercase == true) { echo "checked=\"checked\"";} ?>  />
                         </td>
                     </tr>
                     <tr>
