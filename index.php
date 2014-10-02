@@ -30,14 +30,20 @@
 
         .t-circle {
             color: white;
-            background-color: #428bca;
-            outline-color: #428bca;
-            border-radius: 80px;
-            text-align: center;
-            padding: 10px;
-            width: 10px;
-            height: 10px;
-            margin: 5px;
+            background-color: #5cb85c;
+             display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  /*font-size: 14px;*/
+  font-weight: normal;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+         
         }
 
         .t-title {
@@ -82,11 +88,10 @@
                 <table class="table">
                     <tr>
                         <td>
-                             <label for='number_of_words'>Number Of Words (Between 1 and 15)</label>
+                             <label for='number_of_words'>Number Of Words (Max 10)</label>
                         </td>
                         <td>
-                            <!--<button type="button" class="btn btn-default">15 Min</button>-->
-                            <input type="number" min="1" max="15" name="number_of_words" />
+                            <input type="number" min="1" max="10" required="required" name="number_of_words" value="<?php echo $_GET['number_of_words']; ?>" />
                         </td>
                     </tr>
                     <tr>
@@ -94,11 +99,7 @@
                             <label for='add_a_number'>Add A Number</label>
                         </td>
                         <td>
-                            <input type="checkbox" name="add_a_number" />
-                            <!--<div class="btn-group">
-                    <button type="button" class="btn btn-default" >ON</button>
-                    <button type="button"  class="btn btn-success">OFF</button>
-                </div>-->
+                            <input type="checkbox" name="add_a_number" <?php if(isset($_GET['add_a_number']) && $_GET['add_a_number']) { echo "checked=\"checked\"";} ?> />
                         </td>
                     </tr>
                     <tr>
@@ -106,56 +107,41 @@
                             <label for='add_a_symbol'>Add A Symbol</label>
                         </td>
                         <td>
-                            <input type="checkbox" name="add_a_symbol"  />
-                            <!-- <div class="btn-group">
-                    <button type="button" class="btn btn-default">ON</button>
-                    <button type="button" class="btn btn-success">OFF</button>
-                </div>-->
+                            <input type="checkbox" name="add_a_symbol" <?php if(isset($_GET['add_a_symbol']) && $_GET['add_a_symbol']) { echo "checked=\"checked\"";} ?>  />
                         </td>
                     </tr>
                     <tr>
                         <td><label for='add_a_symbol'>Add Uppercase</label> </td>
                         <td>
-                            <!-- <div class="btn-group">
-                    <button type="button" class="btn btn-default">ON</button>
-                    <button type="button" class="btn btn-success">OFF</button>                    
-                </div>-->
-                            <div class="btn-group">
+                            <!--<div class="btn-group">
                                 <input type='button' name="add_uppercase_on" class="btn btn-default" value='OFF' />
                                 <input type='button' name="add_uppercase_on" class="btn btn-success" value='ON' />
-                            </div>
-                            <input type="checkbox" name="add_a_uppercase"  />
+                            </div>-->
+                            <input type="checkbox" name="add_uppercase" <?php if(isset($_GET['add_uppercase']) && $_GET['add_uppercase']) { echo "checked=\"checked\"";} ?>  />
                         </td>
                     </tr>
                     <tr>
                         <td colspan="2" style="text-align: right">
-                            <!--<button type="button" disabled="disabled" class="btn btn-primary">Reset</button>-->
                              <input type='submit' class="btn btn-primary" value='Generate Password' />
                         </td>
                     </tr>
                 </table>
                 <div class="panel-footer">
+        
+                    <label >Your Password Is:</label>
+            <h3><label class="t-circle"> <?=get_password()?> </label> </h3>
+                
+
+            
+       
                 </div>
             </div>
             
-          <!--  <div>
-               
-                <input type='submit' class="btn btn-primary" value='Generate Password' />
-            </div>-->
         </form>
         
         
         
-        <hr />
-        <div>
-            <h4>Your Password Is:  
-
-       
-                <button disabled="disabled" type="button" class="btn btn-success"> <?=get_password()?> </button>
-
-            </h4>
-        </div>
-        <hr />
+     
         <div class="footer">
             Inspired by:   <a href="http://xkcd.com/936/">http://xkcd.com/936/ </a>
 
