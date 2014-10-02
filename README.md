@@ -16,4 +16,3 @@ Live demo to be performed during section on Wednesday, Oct 8 at 7:30PM.
 ## Outside code
 * Bootstrap: http://getbootstrap.com/
 * Google fonts: http://www.google.com/fonts
-* List of words: http://preshing.com/20110811/xkcd-password-generator/
