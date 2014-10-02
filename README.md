@@ -1,4 +1,4 @@
-# project 2: Create an xkcd style password generator.
+# Project 2: Create an xkcd style password generator.
 
 ## Live URL
 <http://p2.ogaye.me>

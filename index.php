@@ -14,24 +14,7 @@
 
     <link rel="stylesheet" type="text/css" href="styles.css" />
 
-   
-
-<!--    <script>
-
-        function RandomWord() {
-            var requestStr = "http://randomword.setgetgo.com/get.php";
-            $.ajax({
-                type: "GET",
-                url: requestStr,
-                dataType: "jsonp",
-                jsonpCallback: 'RandomWordComplete'
-            });
-        }
-
-        function RandomWordComplete(data) {
-            alert(data.Word);
-        }
-    </script>-->
+  
 </head>
 <body>
     <?php require('logic.php');?>
@@ -84,10 +67,6 @@
                     <tr>
                         <td><label for='add_a_symbol'>Add Uppercase</label> </td>
                         <td>
-                            <!--<div class="btn-group">
-                                <input type='button' name="add_uppercase_on" class="btn btn-default" value='OFF' />
-                                <input type='button' name="add_uppercase_on" class="btn btn-success" value='ON' />
-                            </div>-->
                             <input type="checkbox" name="add_uppercase" <?php if($add_uppercase == true) { echo "checked=\"checked\"";} ?>  />
                         </td>
                     </tr>
@@ -101,25 +80,13 @@
         
                     <label >Your Password Is:</label>
             <h3><label class="t-circle"> <?=get_password()?> </label> </h3>
-                
-
-            
        
                 </div>
             </div>
             
         </form>
-        
-        
-        
-     
         <div class="footer">
             Inspired by:   <a href="http://xkcd.com/936/">http://xkcd.com/936/ </a>
-
-            <!--
-                http://www.google.com/fonts#
-                http://randomword.setgetgo.com/
-                -->
         </div>
 
 

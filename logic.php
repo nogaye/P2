@@ -1,7 +1,5 @@
 <?php
 
-#print_r($_POST); 
-
 # Variables to hold the password settings
 $max_words   = 10; #the maximum number of words allowed
 $number_of_words   = 0;
@@ -11,7 +9,6 @@ $add_uppercase = false;
 $word_separator = 'none';
 
 #an array of parameters returned by a get
-//$params = Array();    
 if($_SERVER['REQUEST_METHOD'] == 'GET'){ 
     if(isset($_GET['number_of_words']))
     {
