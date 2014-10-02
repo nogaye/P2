@@ -94,6 +94,17 @@
                             <input type="number" min="1" max="10" required="required" name="number_of_words" value="<?php echo $_GET['number_of_words']; ?>" />
                         </td>
                     </tr>
+                       <tr>
+                        <td>
+                             <label for='separator'>Word Separator</label>
+                        </td>
+                        <td>
+                            <input type="radio" name="word_separator" value="none" checked="checked" <?php if(isset($_GET['number_of_words']) && $_GET['number_of_words'] == "none") { echo "checked=\"checked\""; } ?>/>None 
+                            <input type="radio" name="word_separator" value="space" <?php if(isset($_GET['number_of_words']) &&  $_GET['word_separator'] == "space") { echo "checked=\"checked\""; } ?>/>Space 
+                            <input type="radio" name="word_separator" value="camelcase" <?php if(isset($_GET['number_of_words']) &&  $_GET['word_separator'] == "camelcase") { echo "checked=\"checked\""; } ?>/>Camel Case
+                            <input type="radio" name="word_separator" value="hyphen" <?php if(isset($_GET['number_of_words']) &&  $_GET['word_separator'] == "hyphen") { echo "checked=\"checked\""; } ?>/>Hyphen
+                        </td>
+                    </tr>
                     <tr>
                         <td>
                             <label for='add_a_number'>Add A Number</label>

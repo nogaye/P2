@@ -9,11 +9,13 @@
     $add_a_number  = false;
     $add_a_symbol   = false;
     $add_uppercase = false;
+    $word_separator = 'none';
     
     #an array of parameters returned by a get
     //$params = Array();    
     foreach($_GET as $key =>$value){    
         $number_of_words =  $_GET['number_of_words'];
+        $word_separator = $_GET['word_separator'];
         $add_a_number = isset($_GET['add_a_number']) && $_GET['add_a_number']  ? true : false;
         $add_a_symbol = isset($_GET['add_a_symbol']) && $_GET['add_a_symbol']  ? true : false;
         $add_uppercase  = isset($_GET['add_uppercase']) && $_GET['add_uppercase']  ? true : false;
@@ -49,7 +51,7 @@
      */
     function get_password(){
         
-        global $number_of_words,  $add_a_number ,    $add_a_symbol  ,     $add_uppercase,$max_words;
+        global $number_of_words,  $add_a_number ,    $add_a_symbol  ,     $add_uppercase,$max_words,$word_separator;
          $password = '';
          
         #if number of words is lass than  1 or more than 15, dont do anything
@@ -93,16 +95,33 @@
         
         #shuffle the array so that numbers are mixed with the words and symbols
         shuffle($words);
-        
+       
         foreach ($words as $word) {
             #only append the '-' between words
-            if($password == '')
+            if($password == '' && $word_separator != 'camelcase')
             {
                 $password = $password  . $word;
             }
             else
             {
-                $password = $password  . '-' . $word;
+                switch ($word_separator) {
+                    case "hyphen":
+                        $password = $password  . '-' . $word;
+                        break;
+                    case "camelcase":
+                        $password = $password .ucfirst($word) ;
+                        break;
+                    case "space":
+                        $password = $password  . ' ' . $word;
+                        break;
+                    case "none":
+                        $password = $password . $word;
+                        break;
+                    default:
+                        $password = $password . $word;
+                }
+                
+                
             }
         }
         
